@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Administração do catálogo de Poções e Soluções." />
+    <title>Administração — Poções e Soluções</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/styles.css" />
+    <script type="module" src="/js/admin.js" defer></script>
+  </head>
+  <body class="admin-body">
+    <header class="admin-header">
+      <div class="container admin-nav">
+        <a class="brand" href="/"><span class="brand-mark">✦</span>Poções & Soluções</a>
+        <div>
+          <span class="status-dot"></span>
+          <span>Laboratório online</span>
+          <a class="button button-ghost button-small" href="/">Ver loja</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="container admin-main">
+      <section class="admin-intro">
+        <div>
+          <p class="eyebrow">Painel administrativo</p>
+          <h1>Catálogo do laboratório</h1>
+          <p>Cadastre novas fórmulas, acompanhe o acervo e remova itens do catálogo.</p>
+        </div>
+        <div class="admin-stats" aria-label="Resumo do catálogo">
+          <article><span>Poções</span><strong id="stat-count">—</strong></article>
+          <article><span>Valor médio</span><strong id="stat-average">—</strong></article>
+          <article><span>Maior preço</span><strong id="stat-highest">—</strong></article>
+        </div>
+      </section>
+
+      <section class="admin-layout">
+        <aside class="admin-form-panel">
+          <div class="panel-heading">
+            <span class="step-badge">+</span>
+            <div><p class="eyebrow">Novo item</p><h2>Cadastrar poção</h2></div>
+          </div>
+
+          <form id="potion-form" enctype="multipart/form-data" novalidate>
+            <label>
+              <span>Nome da poção</span>
+              <input name="name" id="name" type="text" maxlength="120" placeholder="Ex.: Elixir da Memória" required />
+              <small class="field-error" data-error-for="name"></small>
+            </label>
+
+            <label>
+              <span>Descrição</span>
+              <textarea name="description" id="description" rows="5" maxlength="600" placeholder="Conte o efeito, a duração e os cuidados necessários..." required></textarea>
+              <small class="field-meta"><span class="field-error" data-error-for="description"></span><span id="description-count">0/600</span></small>
+            </label>
+
+            <div class="form-row">
+              <label>
+                <span>Preço (moedas)</span>
+                <input name="price" id="price" type="number" min="0.01" step="0.01" placeholder="150" required />
+                <small class="field-error" data-error-for="price"></small>
+              </label>
+              <label>
+                <span>Imagem da poção</span>
+                <input name="image" id="image" type="file" accept="image/png,image/jpeg,image/webp" required />
+                <small class="field-error" data-error-for="image"></small>
+              </label>
+            </div>
+
+            <div class="image-preview" id="image-preview">
+              <img id="preview-img" alt="Pré-visualização da imagem da poção" hidden />
+              <div id="preview-placeholder"><span>✦</span><p>Selecione uma imagem para visualizar a prévia.</p></div>
+            </div>
+
+            <button id="submit-button" class="button button-primary button-full" type="submit">
+              <span class="button-label">Cadastrar poção</span>
+              <span class="button-loader" hidden></span>
+            </button>
+          </form>
+        </aside>
+
+        <section class="admin-list-panel">
+          <div class="panel-heading list-heading">
+            <div><p class="eyebrow">Acervo atual</p><h2>Poções cadastradas</h2></div>
+            <label class="compact-search">
+              <span aria-hidden="true">⌕</span>
+              <input id="admin-search" type="search" placeholder="Filtrar catálogo" />
+            </label>
+          </div>
+
+          <div id="admin-loading" class="admin-loading">
+            <span></span><span></span><span></span>
+          </div>
+          <div id="admin-list" class="admin-list" aria-live="polite"></div>
+          <div id="admin-empty" class="empty-state" hidden>
+            <span>☾</span><h3>Nenhuma poção cadastrada</h3><p>Use o formulário para adicionar a primeira.</p>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <dialog id="delete-dialog" class="confirm-dialog">
+      <div class="confirm-icon">!</div>
+      <h2>Remover poção?</h2>
+      <p id="delete-message">Esta ação não pode ser desfeita.</p>
+      <div>
+        <button id="cancel-delete" class="button button-ghost" type="button">Cancelar</button>
+        <button id="confirm-delete" class="button button-danger" type="button">Remover</button>
+      </div>
+    </dialog>
+
+    <div id="toast-region" class="toast-region" aria-live="polite" aria-atomic="true"></div>
+  </body>
+</html>

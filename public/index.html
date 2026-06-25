@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Poções e Soluções — uma loja de fórmulas raras fundada em 1867."
+    />
+    <title>Poções e Soluções</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/styles.css" />
+    <script type="module" src="/js/shop.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#produtos">Pular para os produtos</a>
+
+    <header class="site-header" id="inicio">
+      <nav class="nav container" aria-label="Navegação principal">
+        <a class="brand" href="#inicio" aria-label="Poções e Soluções — início">
+          <span class="brand-mark">✦</span>
+          <span>Poções <small>&</small> Soluções</span>
+        </a>
+        <button class="menu-button" type="button" aria-expanded="false" aria-controls="main-menu">
+          <span></span><span></span><span></span>
+          <span class="sr-only">Abrir menu</span>
+        </button>
+        <div class="nav-links" id="main-menu">
+          <a href="#sobre">A loja</a>
+          <a href="#historia">História</a>
+          <a href="#produtos">Poções</a>
+          <a href="/admin">Administração</a>
+          <button class="cart-button" type="button" aria-controls="cart-drawer">
+            Sacola <span id="cart-count" aria-label="itens na sacola">0</span>
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero section-grid">
+        <div class="hero-content reveal">
+          <p class="eyebrow">Beco da Última Saída · desde 1867</p>
+          <h1>Fórmulas raras para problemas nada comuns.</h1>
+          <p class="hero-copy">
+            Preparadas em pequenos lotes por Annabelle Merigold, nossas poções misturam tradição,
+            precisão e uma pitada controlada de mistério.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#produtos">Explorar poções</a>
+            <a class="button button-ghost" href="#historia">Conhecer a história</a>
+          </div>
+          <dl class="hero-stats" aria-label="Destaques da loja">
+            <div><dt>159</dt><dd>anos de tradição</dd></div>
+            <div><dt>6</dt><dd>fórmulas iniciais</dd></div>
+            <div><dt>100%</dt><dd>preparo artesanal</dd></div>
+          </dl>
+        </div>
+        <div class="hero-art reveal" aria-hidden="true">
+          <div class="orb orb-one"></div>
+          <div class="orb orb-two"></div>
+          <img src="/assets/hero-cauldron.svg" alt="" />
+          <span class="floating-rune rune-one">✦</span>
+          <span class="floating-rune rune-two">☾</span>
+          <span class="floating-rune rune-three">✧</span>
+        </div>
+      </section>
+
+      <section class="about section container" id="sobre">
+        <div class="section-heading reveal">
+          <p class="eyebrow">A loja</p>
+          <h2>Onde cada frasco guarda uma possibilidade.</h2>
+        </div>
+        <div class="about-grid">
+          <article class="feature-card reveal">
+            <span>01</span>
+            <h3>Ingredientes selecionados</h3>
+            <p>Ervas, essências e minerais escolhidos em fornecedores de confiança.</p>
+          </article>
+          <article class="feature-card reveal">
+            <span>02</span>
+            <h3>Receitas centenárias</h3>
+            <p>Fórmulas preservadas e aperfeiçoadas pela família Merigold desde o século XIX.</p>
+          </article>
+          <article class="feature-card reveal">
+            <span>03</span>
+            <h3>Entrega encantada</h3>
+            <p>Embalagens resistentes, discretas e preparadas para viagens inesperadas.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="history section" id="historia">
+        <div class="container history-grid">
+          <div class="history-visual reveal">
+            <img src="/assets/shop-history.svg" alt="Ilustração da antiga fachada da loja" />
+            <p>Fachada original, Beco da Última Saída, 1867.</p>
+          </div>
+          <div class="history-content reveal">
+            <p class="eyebrow">Nossa história</p>
+            <h2>Uma tradição iniciada à luz de velas.</h2>
+            <p>
+              A Poções e Soluções abriu suas portas em 1867, quando Elowen Merigold transformou
+              uma pequena oficina em ponto de encontro para viajantes, estudiosos e curiosos.
+            </p>
+            <p>
+              Hoje, Annabelle mantém o mesmo cuidado artesanal, combinando o acervo da família
+              com uma loja preparada para atender clientes de qualquer lugar.
+            </p>
+            <div class="timeline" aria-label="Linha do tempo da loja">
+              <div><strong>1867</strong><span>Fundação da primeira oficina</span></div>
+              <div><strong>1924</strong><span>Criação do laboratório subterrâneo</span></div>
+              <div><strong>2024</strong><span>Abertura da loja virtual</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="products section container" id="produtos">
+        <div class="products-heading reveal">
+          <div>
+            <p class="eyebrow">Catálogo encantado</p>
+            <h2>Escolha sua próxima solução.</h2>
+          </div>
+          <p id="result-count" aria-live="polite">Carregando poções...</p>
+        </div>
+
+        <div class="catalog-toolbar reveal" role="search">
+          <label class="search-field">
+            <span class="sr-only">Buscar poções</span>
+            <span aria-hidden="true">⌕</span>
+            <input id="search-input" type="search" placeholder="Buscar por nome ou efeito..." />
+          </label>
+          <label class="select-field">
+            <span>Ordenar</span>
+            <select id="sort-select">
+              <option value="recent">Mais recentes</option>
+              <option value="name">Nome A–Z</option>
+              <option value="price-asc">Menor preço</option>
+              <option value="price-desc">Maior preço</option>
+            </select>
+          </label>
+        </div>
+
+        <div id="loading-state" class="loading-grid" aria-label="Carregando catálogo">
+          <div></div><div></div><div></div>
+        </div>
+        <div id="product-grid" class="product-grid" aria-live="polite"></div>
+        <div id="empty-state" class="empty-state" hidden>
+          <span>☾</span>
+          <h3>Nenhuma poção encontrada</h3>
+          <p>Tente buscar por outro nome ou efeito.</p>
+          <button id="clear-search" class="button button-ghost" type="button">Limpar busca</button>
+        </div>
+      </section>
+
+      <section class="newsletter section">
+        <div class="container newsletter-card reveal">
+          <div>
+            <p class="eyebrow">Correio das corujas</p>
+            <h2>Receba novidades do laboratório.</h2>
+            <p>Uma mensagem ocasional sobre novas fórmulas, histórias e pequenos mistérios.</p>
+          </div>
+          <form id="newsletter-form" class="newsletter-form">
+            <label class="sr-only" for="newsletter-email">Seu e-mail</label>
+            <input id="newsletter-email" type="email" placeholder="seuemail@exemplo.com" required />
+            <button class="button button-primary" type="submit">Inscrever-se</button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-grid">
+        <div>
+          <a class="brand" href="#inicio"><span class="brand-mark">✦</span>Poções & Soluções</a>
+          <p>Tradição, precisão e mistério desde 1867.</p>
+        </div>
+        <div>
+          <h3>Visite</h3>
+          <p>Beco da Última Saída, 67<br />São Carlos — SP</p>
+        </div>
+        <div>
+          <h3>Contato</h3>
+          <p><a href="mailto:contato@pocoesesolucoes.com">contato@pocoesesolucoes.com</a><br />(16) 3667-1867</p>
+        </div>
+        <div>
+          <h3>Horários</h3>
+          <p>Seg–Sex, 9h–19h<br />Sábados, 10h–16h</p>
+        </div>
+      </div>
+      <div class="container footer-bottom">
+        <span>© <span id="year"></span> Poções e Soluções</span>
+        <a href="/admin">Área administrativa</a>
+      </div>
+    </footer>
+
+    <aside class="cart-drawer" id="cart-drawer" aria-hidden="true" aria-labelledby="cart-title">
+      <div class="drawer-header">
+        <div>
+          <p class="eyebrow">Sua seleção</p>
+          <h2 id="cart-title">Sacola encantada</h2>
+        </div>
+        <button class="icon-button" id="close-cart" type="button" aria-label="Fechar sacola">×</button>
+      </div>
+      <div id="cart-items" class="cart-items"></div>
+      <div class="cart-footer">
+        <div><span>Total</span><strong id="cart-total">0 moedas</strong></div>
+        <button id="checkout-button" class="button button-primary" type="button">Finalizar demonstração</button>
+        <small>A compra é apenas demonstrativa nesta entrega.</small>
+      </div>
+    </aside>
+    <div class="overlay" id="overlay" hidden></div>
+
+    <dialog id="product-dialog" class="product-dialog">
+      <button class="dialog-close" type="button" aria-label="Fechar">×</button>
+      <div id="dialog-content"></div>
+    </dialog>
+
+    <div id="toast-region" class="toast-region" aria-live="polite" aria-atomic="true"></div>
+  </body>
+</html>

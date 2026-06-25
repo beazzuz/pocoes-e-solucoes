@@ -1,4 +1,5 @@
 # Poções e Soluções
+Isabela Beatriz Sousa Nunes Farias 13823833
 
 Loja virtual e painel administrativo para cadastrar, listar e remover poções. O projeto usa Express, Sequelize e SQLite em memória.
 
